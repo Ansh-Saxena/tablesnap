@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — TableSnap Chrome Extension</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 780px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #1F2937;
+      background: #FAFAFA;
+    }
+    .card {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 36px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    h1 { font-size: 24px; color: #111827; margin-bottom: 8px; }
+    .updated { color: #6B7280; font-size: 13px; margin-bottom: 24px; }
+    h2 { font-size: 17px; color: #111827; margin: 24px 0 10px; border-bottom: 1px solid #F3F4F6; padding-bottom: 6px; }
+    p, li { font-size: 14px; color: #374151; margin-bottom: 10px; }
+    ul { margin-left: 20px; margin-bottom: 14px; }
+    .badge { display: inline-block; background: #ECFDF5; color: #065F46; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 6px; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">🔒 100% Client-Side & Private</div>
+    <h1>Privacy Policy for TableSnap</h1>
+    <div class="updated">Last Updated: September 10, 2026</div>
+
+    <p>This privacy policy explains how <strong>TableSnap</strong> ("we", "us", or "our") handles your information when you use our Chrome browser extension.</p>
+
+    <h2>1. Single Purpose & Data Collection Philosophy</h2>
+    <p>TableSnap is designed with a single purpose: to allow users to inspect and extract tabular data and lists from web pages directly to CSV, Excel, or JSON formats on their local device. We believe your web browsing data should remain entirely private.</p>
+
+    <h2>2. Data We Do NOT Collect</h2>
+    <ul>
+      <li><strong>No Web History:</strong> We do not monitor, log, or track your browsing history.</li>
+      <li><strong>No Personal Information:</strong> We do not collect names, emails, passwords, IP addresses, or location data.</li>
+      <li><strong>No Remote Data Transmission:</strong> Extracted data stays on your machine. We do not transmit table rows, cell contents, or webpage contents to any external server or cloud database.</li>
+      <li><strong>No Third-Party Trackers:</strong> The extension contains zero advertising SDKs, tracking pixels, or third-party analytics.</li>
+    </ul>
+
+    <h2>3. How Data is Stored Locally</h2>
+    <p>TableSnap uses standard <code>chrome.storage.local</code> strictly for local extension functionality:</p>
+    <ul>
+      <li>Temporarily caching the most recently extracted table for user preview and export.</li>
+      <li>Remembering your preference settings (such as Pro license status or developer sandbox state).</li>
+      <li>Tracking daily free export counts to enforce quota limits.</li>
+    </ul>
+    <p>This data never leaves your local Chrome profile and can be cleared at any time by uninstalling the extension or clearing extension data.</p>
+
+    <h2>4. Permissions Justification</h2>
+    <ul>
+      <li><code>activeTab</code> / <code>scripting</code>: Used exclusively when you click the extension or activate the inspector to inspect and extract table elements on the active webpage.</li>
+      <li><code>storage</code>: Used to store user settings and temporary data previews locally on your browser.</li>
+    </ul>
+
+    <h2>5. Contact Us</h2>
+    <p>If you have any questions or feedback regarding this Privacy Policy, you may contact us at: <code>support@tablesnap.dev</code>.</p>
+  </div>
+</body>
+</html>

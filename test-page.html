@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TableSnap Extension — Test & Demo Page</title>
+  <style>
+    :root {
+      --bg: #0B0F17;
+      --card: #151D2A;
+      --border: #222F3E;
+      --text: #F1F5F9;
+      --muted: #94A3B8;
+      --primary: #10B981;
+      --accent: #3B82F6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 32px 20px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1080px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, #1E293B, #0F172A);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 30px;
+    }
+    h1 { font-size: 24px; margin-bottom: 8px; color: #FFFFFF; display: flex; align-items: center; gap: 10px; }
+    .badge { background: #065F46; color: #34D399; font-size: 12px; padding: 4px 10px; border-radius: 9999px; font-weight: 600; }
+    p { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+    .instructions {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 14px;
+    }
+    .instructions ol { margin-left: 20px; font-size: 13px; color: #E2E8F0; }
+    .instructions li { margin-bottom: 6px; }
+    .section-title { font-size: 18px; margin: 28px 0 14px; display: flex; align-items: center; justify-content: space-between; }
+    .table-container {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+    th { background: #1C2638; padding: 10px 14px; color: #94A3B8; font-weight: 600; border-bottom: 1px solid var(--border); }
+    td { padding: 10px 14px; border-bottom: 1px solid #1C2638; color: #E2E8F0; }
+    tr:hover td { background: rgba(255, 255, 255, 0.02); }
+    .tag-positive { color: #10B981; font-weight: 600; }
+    .tag-negative { color: #EF4444; font-weight: 600; }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.15s;
+    }
+    .product-card:hover { border-color: var(--primary); }
+    .product-title { font-size: 15px; font-weight: 600; color: #FFFFFF; }
+    .product-price { font-size: 16px; font-weight: 700; color: #10B981; }
+    .product-meta { font-size: 12px; color: var(--muted); }
+    .product-link { color: var(--accent); text-decoration: none; font-size: 12px; font-weight: 500; margin-top: auto; }
+    .product-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚡ TableSnap Test & Demo Bench <span class="badge">Local Testbench</span></h1>
+      <p>This page contains realistic tables and repeated card grids to test the TableSnap Chrome Extension.</p>
+      <div class="instructions">
+        <strong>How to test right now:</strong>
+        <ol>
+          <li>Open the <strong>TableSnap</strong> extension icon in your Chrome toolbar.</li>
+          <li>Click <strong>"Inspect & Click Element on Page"</strong>, hover over the stock table below, and click it.</li>
+          <li>Reopen TableSnap to see the structured data preview with row counts!</li>
+          <li>Test exporting to <strong>CSV</strong> or clicking <strong>Copy</strong> (paste directly into Excel or Google Sheets).</li>
+          <li>Notice the <strong>25-row free preview limit</strong> on this 35-row table. Switch to the <strong>Pro Plan</strong> tab in the extension, toggle the <strong>Developer Sandbox</strong> switch, and watch all 35 rows instantly unlock!</li>
+        </ol>
+      </div>
+    </header>
+
+    <!-- Test 1: Financial Market Table (35 Rows) -->
+    <div class="section-title">
+      <h3>📊 Dataset 1: S&P 500 Top Movers (35 Rows Table)</h3>
+      <span style="font-size: 12px; color: var(--muted);">Tests table detection, header parsing, and free 25-row truncation</span>
+    </div>
+    <div class="table-container">
+      <table id="stocks-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Company Name</th>
+            <th>Sector</th>
+            <th>Last Price</th>
+            <th>Day Change %</th>
+            <th>Market Cap</th>
+            <th>Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>NVDA</td><td>NVIDIA Corp.</td><td>Semiconductors</td><td>$124.50</td><td class="tag-positive">+4.12%</td><td>$3.06T</td><td>48.2M</td></tr>
+          <tr><td>AAPL</td><td>Apple Inc.</td><td>Consumer Electronics</td><td>$221.30</td><td class="tag-positive">+1.05%</td><td>$3.38T</td><td>52.1M</td></tr>
+          <tr><td>MSFT</td><td>Microsoft Corp.</td><td>Software & Cloud</td><td>$448.20</td><td class="tag-positive">+0.85%</td><td>$3.32T</td><td>21.4M</td></tr>
+          <tr><td>GOOGL</td><td>Alphabet Inc.</td><td>Internet Services</td><td>$178.40</td><td class="tag-negative">-0.45%</td><td>$2.21T</td><td>19.8M</td></tr>
+          <tr><td>AMZN</td><td>Amazon.com Inc.</td><td>E-Commerce & Cloud</td><td>$186.10</td><td class="tag-positive">+1.65%</td><td>$1.94T</td><td>31.2M</td></tr>
+          <tr><td>TSLA</td><td>Tesla Inc.</td><td>Automotive & Clean Energy</td><td>$215.80</td><td class="tag-positive">+5.20%</td><td>$687B</td><td>65.4M</td></tr>
+          <tr><td>META</td><td>Meta Platforms Inc.</td><td>Social Media</td><td>$512.90</td><td class="tag-positive">+2.15%</td><td>$1.30T</td><td>14.7M</td></tr>
+          <tr><td>BRK.B</td><td>Berkshire Hathaway</td><td>Financial Conglomerate</td><td>$442.10</td><td class="tag-negative">-0.10%</td><td>$960B</td><td>3.1M</td></tr>
+          <tr><td>LLY</td><td>Eli Lilly & Co.</td><td>Pharmaceuticals</td><td>$950.40</td><td class="tag-positive">+1.80%</td><td>$902B</td><td>2.9M</td></tr>
+          <tr><td>AVGO</td><td>Broadcom Inc.</td><td>Semiconductors</td><td>$158.70</td><td class="tag-positive">+3.40%</td><td>$740B</td><td>18.5M</td></tr>
+          <tr><td>JPM</td><td>JPMorgan Chase & Co.</td><td>Banking</td><td>$208.50</td><td class="tag-positive">+0.60%</td><td>$598B</td><td>8.9M</td></tr>
+          <tr><td>V</td><td>Visa Inc.</td><td>Payment Processing</td><td>$268.30</td><td class="tag-positive">+0.40%</td><td>$545B</td><td>6.2M</td></tr>
+          <tr><td>WMT</td><td>Walmart Inc.</td><td>Retail</td><td>$72.10</td><td class="tag-positive">+0.90%</td><td>$580B</td><td>15.1M</td></tr>
+          <tr><td>XOM</td><td>Exxon Mobil Corp.</td><td>Oil & Gas</td><td>$114.20</td><td class="tag-negative">-1.15%</td><td>$452B</td><td>14.3M</td></tr>
+          <tr><td>UNH</td><td>UnitedHealth Group</td><td>Healthcare</td><td>$575.40</td><td class="tag-positive">+0.75%</td><td>$530B</td><td>3.4M</td></tr>
+          <tr><td>MA</td><td>Mastercard Inc.</td><td>Payment Processing</td><td>$462.80</td><td class="tag-positive">+0.50%</td><td>$428B</td><td>2.8M</td></tr>
+          <tr><td>PG</td><td>Procter & Gamble</td><td>Consumer Staples</td><td>$168.90</td><td class="tag-negative">-0.20%</td><td>$398B</td><td>5.1M</td></tr>
+          <tr><td>COST</td><td>Costco Wholesale</td><td>Retail</td><td>$885.20</td><td class="tag-positive">+1.10%</td><td>$392B</td><td>1.9M</td></tr>
+          <tr><td>JNJ</td><td>Johnson & Johnson</td><td>Pharmaceuticals</td><td>$162.40</td><td class="tag-positive">+0.30%</td><td>$390B</td><td>7.5M</td></tr>
+          <tr><td>HD</td><td>The Home Depot</td><td>Retail</td><td>$372.10</td><td class="tag-positive">+0.45%</td><td>$369B</td><td>3.8M</td></tr>
+          <tr><td>ABBV</td><td>AbbVie Inc.</td><td>Biotechnology</td><td>$192.50</td><td class="tag-positive">+1.05%</td><td>$340B</td><td>4.2M</td></tr>
+          <tr><td>ORCL</td><td>Oracle Corp.</td><td>Database & Cloud</td><td>$141.20</td><td class="tag-positive">+2.30%</td><td>$388B</td><td>12.1M</td></tr>
+          <tr><td>MRK</td><td>Merck & Co.</td><td>Pharmaceuticals</td><td>$118.70</td><td class="tag-negative">-0.60%</td><td>$300B</td><td>6.7M</td></tr>
+          <tr><td>BAC</td><td>Bank of America</td><td>Banking</td><td>$39.40</td><td class="tag-positive">+0.80%</td><td>$308B</td><td>28.5M</td></tr>
+          <tr><td>KO</td><td>The Coca-Cola Co.</td><td>Beverages</td><td>$68.50</td><td class="tag-positive">+0.25%</td><td>$295B</td><td>11.2M</td></tr>
+          <!-- Rows beyond 25 to test free vs pro limitation -->
+          <tr><td>CRM</td><td>Salesforce Inc.</td><td>Enterprise Software</td><td>$255.40</td><td class="tag-positive">+1.40%</td><td>$246B</td><td>4.9M</td></tr>
+          <tr><td>NFLX</td><td>Netflix Inc.</td><td>Streaming Entertainment</td><td>$682.10</td><td class="tag-positive">+1.95%</td><td>$293B</td><td>3.1M</td></tr>
+          <tr><td>AMD</td><td>Advanced Micro Devices</td><td>Semiconductors</td><td>$152.80</td><td class="tag-positive">+2.80%</td><td>$247B</td><td>44.1M</td></tr>
+          <tr><td>PEP</td><td>PepsiCo Inc.</td><td>Beverages & Snacks</td><td>$174.20</td><td class="tag-negative">-0.35%</td><td>$239B</td><td>4.8M</td></tr>
+          <tr><td>TMO</td><td>Thermo Fisher Scientific</td><td>Life Sciences</td><td>$588.60</td><td class="tag-positive">+0.70%</td><td>$224B</td><td>1.4M</td></tr>
+          <tr><td>LIN</td><td>Linde plc</td><td>Chemicals</td><td>$452.10</td><td class="tag-positive">+0.40%</td><td>$216B</td><td>1.2M</td></tr>
+          <tr><td>WFC</td><td>Wells Fargo & Co.</td><td>Banking</td><td>$56.80</td><td class="tag-positive">+1.15%</td><td>$198B</td><td>16.4M</td></tr>
+          <tr><td>CSCO</td><td>Cisco Systems</td><td>Networking Equipment</td><td>$49.50</td><td class="tag-negative">-0.10%</td><td>$198B</td><td>14.8M</td></tr>
+          <tr><td>QCOM</td><td>Qualcomm Inc.</td><td>Telecommunications</td><td>$168.30</td><td class="tag-positive">+1.75%</td><td>$187B</td><td>9.2M</td></tr>
+          <tr><td>DIS</td><td>Walt Disney Co.</td><td>Media & Parks</td><td>$92.40</td><td class="tag-positive">+0.65%</td><td>$168B</td><td>8.5M</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Test 2: Repeated Card Grid (E-Commerce style) -->
+    <div class="section-title">
+      <h3>🛍️ Dataset 2: E-Commerce Product Cards (Repeated Grid)</h3>
+      <span style="font-size: 12px; color: var(--muted);">Tests non-table card recognition (titles, prices, links)</span>
+    </div>
+    <div class="product-grid" id="product-catalog">
+      <div class="product-card">
+        <h4 class="product-title">Ultra Wireless Noise-Cancelling Headphones</h4>
+        <div class="product-price">$299.99</div>
+        <div class="product-meta">Rating: 4.8 / 5.0 (2,410 reviews) &bull; In Stock</div>
+        <a href="#product-1" class="product-link">View Details &rarr;</a>
+      </div>
+      <div class="product-card">
+        <h4 class="product-title">Ergonomic Mechanical Keyboard (RGB)</h4>
+        <div class="product-price">$129.50</div>
+        <div class="product-meta">Rating: 4.6 / 5.0 (1,150 reviews) &bull; In Stock</div>
+        <a href="#product-2" class="product-link">View Details &rarr;</a>
+      </div>
+      <div class="product-card">
+        <h4 class="product-title">Precision Gaming Mouse 26,000 DPI</h4>
+        <div class="product-price">$79.00</div>
+        <div class="product-meta">Rating: 4.7 / 5.0 (890 reviews) &bull; Only 3 left</div>
+        <a href="#product-3" class="product-link">View Details &rarr;</a>
+      </div>
+      <div class="product-card">
+        <h4 class="product-title">4K HDR Ultra-Wide 34" Monitor</h4>
+        <div class="product-price">$549.00</div>
+        <div class="product-meta">Rating: 4.9 / 5.0 (3,200 reviews) &bull; In Stock</div>
+        <a href="#product-4" class="product-link">View Details &rarr;</a>
+      </div>
+      <div class="product-card">
+        <h4 class="product-title">USB-C Multi-Port Thunderbolt Dock</h4>
+        <div class="product-price">$149.95</div>
+        <div class="product-meta">Rating: 4.5 / 5.0 (640 reviews) &bull; In Stock</div>
+        <a href="#product-5" class="product-link">View Details &rarr;</a>
+      </div>
+      <div class="product-card">
+        <h4 class="product-title">Smart Desk Dual Motor Adjustable Frame</h4>
+        <div class="product-price">$399.00</div>
+        <div class="product-meta">Rating: 4.7 / 5.0 (1,830 reviews) &bull; Free Shipping</div>
+        <a href="#product-6" class="product-link">View Details &rarr;</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
