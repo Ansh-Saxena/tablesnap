@@ -1,4 +1,4 @@
-﻿# Chrome Web Store Listing — TableSnap
+# Chrome Web Store Listing — TableSnap
 
 > Last Updated: 2026-09-10
 
@@ -51,10 +51,8 @@ English
 | Asset | Dimensions | Status | Filename |
 |-------|-----------|--------|----------|
 | Store Icon [REQUIRED] | 128×128 PNG | ✅ Ready | `icons/icon-128.png` |
-| Screenshot 1 [REQUIRED] | 1280×800 or 640×400 | ⬜ To capture | Store screenshot of hovering table on test-page.html |
-| Screenshot 2 [RECOMMENDED] | 1280×800 or 640×400 | ⬜ To capture | Store screenshot of preview table & CSV export |
-| Screenshot 3 [RECOMMENDED] | 1280×800 or 640×400 | ⬜ To capture | Store screenshot of Pro upgrade modal & features |
-| Small Promo Tile [RECOMMENDED] | 440×280 | ⬜ To capture | Promo banner with TableSnap logo |
+| Screenshot 1 [REQUIRED] | 1280×800 PNG | ✅ Ready | `store-assets/screenshot-1.png` |
+| Small Promo Tile [RECOMMENDED] | 440×280 PNG | ✅ Ready | `store-assets/promo-tile-440x280.png` |
 
 ---
 
