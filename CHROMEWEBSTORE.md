@@ -84,7 +84,7 @@ TableSnap runs 100% client-side. No user data, web history, page content, or cre
 
 ## Privacy Policy
 
-**Privacy Policy URL**: Host `privacy-policy.html` on GitHub Pages (e.g., `https://your-username.github.io/tablesnap/privacy-policy.html`) or your custom domain.
+**Privacy Policy URL**: `https://Ansh-Saxena.github.io/tablesnap/privacy-policy.html`
 
 ---
 
