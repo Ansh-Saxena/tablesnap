@@ -100,4 +100,5 @@ TableSnap runs 100% client-side. No user data, web history, page content, or cre
 
 | Version | Date | Changes | Status |
 |---------|------|---------|--------|
-| 1.0.0 | 2026-09-10 | Initial release: table inspector, card parser, CSV/Excel/JSON export, Pro monetization engine | Ready to Publish |
+| 1.0.1 | 2026-09-28 | Conversion boost: $9.99 early-bird pricing, Excel/JSON Pro gating, tighter 15-row free preview | Published |
+| 1.0.0 | 2026-09-10 | Initial release: table inspector, card parser, CSV/Excel/JSON export, Pro monetization engine | Published |

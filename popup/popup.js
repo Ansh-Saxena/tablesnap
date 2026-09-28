@@ -307,6 +307,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   async function handleExport(format) {
     if (!currentCapture || !currentCapture.data || currentCapture.data.length === 0) return;
 
+    // Pro Format Check: Excel & JSON are premium formats
+    if (!currentStatus.isPro && (format === 'excel' || format === 'json')) {
+      alert(`⚡ Direct ${format.toUpperCase()} export is a Pro feature!\n\nFree tier exports standard CSV. Upgrade to Pro for lifetime Excel & JSON downloads for only $9.99 USD (~₹799)!`);
+      switchTab('tab-pro');
+      return;
+    }
+
     const exportCheck = await window.monetization.checkAndRecordExport(currentCapture.data.length);
     if (!exportCheck.allowed) {
       alert(exportCheck.reason);

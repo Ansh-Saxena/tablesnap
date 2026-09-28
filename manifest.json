@@ -1,7 +1,7 @@
-﻿{
+{
   "manifest_version": 3,
   "name": "TableSnap - Web Table & Data Scraper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extract tables, lists, and repeated card grids from any webpage into CSV, Excel, or JSON with 1 click.",
   "permissions": [
     "storage",
